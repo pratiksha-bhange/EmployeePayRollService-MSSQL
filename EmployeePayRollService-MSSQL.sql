@@ -66,3 +66,50 @@ insert into employee_payroll
 values(104,'Terissa',400000.00,'2020-06-1','F',8156782910,'Sales','mumbai',2000,1000,200,18000),
 (105,'Terissa',400000.00,'2020-06-1','F',8156782910,'Marketing','mumbai',2000,1000,200,18000);
 select * from employee_payroll; 
+
+--UC11 - adding same name to with differnt department and same other attributes to same table.
+--adding Department table
+create table Department(department_id int not null primary key,department_name varchar(20) not null);
+
+--inserted data into department table
+insert into Department values(101,'Sales'),(102,'Marketing');
+select * from Department;
+
+--creating payroll table
+create table payroll(payroll_Id int not null primary key,basic_pay money not null,deductions money not null,taxable_pay money not null,net_pay money not null,income_tax money not null);
+
+--inserted data into payroll table
+insert into payroll values(201,500000,3000,2000,22000,300),
+(202,600000,4000,3000,32000,400),
+(203,700000,5000,4000,42000,500);
+select * from payroll;
+
+--adding company table
+create table company(company_id int not null primary key,company_name varchar(20) not null);
+
+--inserted data into company table
+insert into company values
+(301,'Nokia'),
+(302,'Samsung');
+select * from company;
+
+--creating employee table
+create table employee(employee_id int not null primary key,employee_name varchar(70) not null,gender char(1) not null,address varchar(100) not null,phone_number bigint not null,start_date datetime not null,company_id int not null,payroll_id int not null,basic_pay money not null,foreign key(company_id) references company(company_id),foreign key(payroll_id) references payroll(payroll_Id));
+
+--inserted data into employee table
+insert into employee values
+(1,'Poonam','F','latur',3939390910,'2020-10-2',301,201,300000),
+(2,'Ruhi','M','pune',3939690910,'2019-10-2',302,202,40000),
+(3,'Diksha','F','amrvati',3959390910,'2020-10-2',301,203,600000);
+select * from employee;
+
+--creating employee department table
+create table EmployeeDepartment(employee_Department_id int not null,employee_id int not null,department_id int not null,foreign key(employee_id) references employee(employee_id),foreign key(department_id)references Department(department_id));
+
+--inserted data into employee department table
+insert into EmployeeDepartment values
+(401,1,101),
+(402,2,102),
+(401,1,102),
+(402,2,101);
+select * from EmployeeDepartment;
