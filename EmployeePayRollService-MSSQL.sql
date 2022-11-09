@@ -29,4 +29,13 @@ Update employee_payroll set Gender='F' where nameofStudent = 'Terisa';
 Update employee_payroll set Gender='M' where nameofStudent = 'Bill' or nameofStudent = 'Charlie';
 update employee_payroll set salary = 300000.00 where nameofStudent = 'Terisa';
 
+--UC7 - find sum, average, min, max and number of male and female employees.
+select Sum(salary)  as "TotalSalaryofMales" from employee_payroll where gender = 'M' group by gender;
+select Sum(salary)  as "TotalSalaryofFemale" from employee_payroll where gender = 'F' group by gender;
+select Sum(salary) as "TotalSalary",Gender from employee_payroll group by Gender;
+select Avg(salary) as "AverageSalary",Gender from employee_payroll group by Gender;
+select Min(salary) as "MinimumSalary",Gender from employee_payroll group by Gender;
+select Max(salary) as "MaximumSalary",Gender from employee_payroll group by Gender;
+select count(salary) as "NumberofMales&Females",Gender from employee_payroll group by Gender;
+
 
