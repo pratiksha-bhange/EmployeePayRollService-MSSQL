@@ -6,12 +6,12 @@ create table employee_payroll( ID int primary key not null identity(1,1), Nameof
 
 select * from employee_payroll
 
---UC3 - inserting values to table
+--UC3 - inserting values to table.
 insert into employee_payroll (nameofStudent, Salary, StartDate) values
-('Pratiksha', 40000, '22-Mar-2022'),
-('kiran', 70000, '17-June-2007'),
-('Virat', 50000, '18-May-2010'),
-('Rohini', 60000, '09-Jan-2009');
+('Bill', 100000.00, '2018-01-03'),
+('Terisa', 200000.00, '2019-11-13'),
+('Charlie', 300000.00, '2020-05-21');
+
 
 --UC4 - Retrieve employee_payroll data
 select * from employee_payroll
@@ -20,3 +20,6 @@ select * from employee_payroll
 select salary from employee_payroll where nameofStudent = 'Bill';
 select * from employee_payroll
 where StartDate between CAST ('2018-01-01' as date) and GETDATE()
+
+--UC6 - add Gender to Employee_Payroll Table and Update the Rows to reflect the correct Employee Gender.
+Alter table employee_payroll add Gender char(1);
