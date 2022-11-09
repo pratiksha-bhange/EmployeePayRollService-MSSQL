@@ -39,3 +39,12 @@ select Max(salary) as "MaximumSalary",Gender from employee_payroll group by Gend
 select count(salary) as "NumberofMales&Females",Gender from employee_payroll group by Gender;
 
 
+--UC8-- add employee phone, department(not null), Address (using default values)
+select * from employee_payroll;
+
+alter table employee_payroll add PhoneNo bigint;
+
+update employee_payroll set PhoneNo = 9234569874 where id = 1;
+
+alter table employee_payroll add Address varchar(100) not null default 'Bangalore';
+alter table employee_payroll add Department varchar(250) not null default 'IT';
