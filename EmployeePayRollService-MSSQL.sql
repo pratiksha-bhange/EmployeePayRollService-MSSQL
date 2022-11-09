@@ -60,3 +60,9 @@ Update employee_payroll set basicpay = 8000 where Gender = 'F';
 update employee_payroll set NetPay = (basicPay - Deduction)
 update employee_payroll set TaxablePay = 0, IncomeTax = 0
 select * from employee_payroll; 
+
+-- UC10 - Adding another Value for Terissa in Sales&Marketing Department.
+insert into employee_payroll 
+values(104,'Terissa',400000.00,'2020-06-1','F',8156782910,'Sales','mumbai',2000,1000,200,18000),
+(105,'Terissa',400000.00,'2020-06-1','F',8156782910,'Marketing','mumbai',2000,1000,200,18000);
+select * from employee_payroll; 
