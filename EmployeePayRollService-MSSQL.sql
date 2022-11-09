@@ -21,5 +21,12 @@ select salary from employee_payroll where nameofStudent = 'Bill';
 select * from employee_payroll
 where StartDate between CAST ('2018-01-01' as date) and GETDATE()
 
+
 --UC6 - add Gender to Employee_Payroll Table and Update the Rows to reflect the correct Employee Gender.
 Alter table employee_payroll add Gender char(1);
+
+Update employee_payroll set Gender='F' where nameofStudent = 'Terisa';
+Update employee_payroll set Gender='M' where nameofStudent = 'Bill' or nameofStudent = 'Charlie';
+update employee_payroll set salary = 300000.00 where nameofStudent = 'Terisa';
+
+
